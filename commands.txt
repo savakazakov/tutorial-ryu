@@ -1,0 +1,5 @@
+sudo docker build --rm -f topology.Dockerfile -t topology:latest .
+sudo docker run --rm -it --privileged --network host --name topology topology:latest
+
+sudo docker build --rm -f controller.Dockerfile -t controller:latest .
+sudo docker run --rm -it --network host --name controller controller:latest

@@ -16,7 +16,6 @@ from ryu.ofproto import ofproto_v1_3
 from ryu.lib.packet import packet
 from ryu.lib.dpid import dpid_to_str
 
-
 class Controller(RyuApp):
 
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
