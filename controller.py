@@ -103,7 +103,6 @@ class Controller(RyuApp):
         
         # If the destination mac address is already learned,
         # decide which port to output the packet, otherwise FLOOD.
-
         if dst in self.mac_to_port[dpid]:
             out_port = self.mac_to_port[dpid][dst]
         else:
@@ -139,10 +138,16 @@ class Controller(RyuApp):
 
         # self.logger.debug('OFPPacketIn received: '
         #                 'buffer_id=%x total_len=%d reason=%s '
-        #                 'table_id=%d cookie=%d match=%s data=%s',
+        #                 'table_id=%d cookie=%d match=%s data=%s ',
         #                 msg.buffer_id, msg.total_len, reason,
         #                 msg.table_id, msg.cookie, msg.match,
         #                 utils.hex_array(msg.data))
+        
+        self.logger.debug('OFPPacketIn received: '
+                        'buffer_id=%x total_len=%d reason=%s '
+                        'table_id=%d cookie=%d match=%s ',
+                        msg.buffer_id, msg.total_len, reason,
+                        msg.table_id, msg.cookie, msg.match)
         
         return
 
